@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Blog Post - Start Bootstrap Template</title>
+<!-- Bootstrap core CSS -->
+<link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="/css/blog-post.css" rel="stylesheet">
+
+<!-- Custom fonts for this template -->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Kaushan+Script'
+	rel='stylesheet' type='text/css'>
+<link
+	href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700'
+	rel='stylesheet' type='text/css'>
+
+<!-- Custom styles for this template -->
+<link href="/css/agency.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+			<div class="container" style="background-color: #212529;">
+				<a class="navbar-brand js-scroll-trigger" th:href="@{/}">DMC</a>
+				<button class="navbar-toggler navbar-toggler-right" type="button"
+						data-toggle="collapse" data-target="#navbarResponsive"
+						aria-controls="navbarResponsive" aria-expanded="false"
+						aria-label="Toggle navigation">
+					Menu <i class="fas fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav text-uppercase ml-auto">
+						
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						th:href="@{/event}">Event</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						th:href="@{/new}">New</a></li>
+						
+						
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="#team">Login</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="#contact">Register</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+
+	<!--  -->
+	<!--  -->
+	<!--  -->
+	<!--  -->
+	<!--  -->
+
+	<!-- Page Content -->
+	<div class="container">
+		<div class="row">
+			<!-- Post Content Column -->
+			<div class="col-lg-12">
+				<!-- Title -->
+				<h1 class="mt-4" th:text="${news.name}"></h1>
+				<!-- Author -->
+				<p class="lead">
+					by <a href="#">롯데제과</a>
+				</p>
+
+				<hr>
+				<div class="row">
+
+					<!--  여기서 col-md-8, 4를 수정하면 크기 변환됩니다.   -->
+					<div class="col-md-7">
+						<img th:if="*{news.img eq null}" class="img-fluid" style="width: 500px; height: 500px" src="/img/product/" th:attrappend="src=${news.thumbnail}" alt="">
+						<img th:if="*{news.img ne null}" class="img-fluid" style="width: 500px; height: 500px" src="/img/product/" th:attrappend="src=${news.img}" alt="">
+					</div>
+
+					<div class="col-md-5">
+						<h3 class="my-3" th:text="${news.name}"></h3>
+
+						<hr>
+
+						<h4>상품소개</h4>
+						<h5 th:text="${news.detail}"></h5>
+
+						<hr>
+
+						<h4 class="my-3">상품정보</h4>
+						<ul>
+							<li th:text="${news.product1}"></li>
+
+
+
+							<li th:text="${news.product2}"></li>
+
+
+							<li th:text="${news.store}">제조사: 롯데제과주식회사_서울시 영등포구 양평로 21길
+								25</li>
+
+							<li th:text="${news.registerDate}">영양성분: 1회 제공량 1개(140ml)/
+								총 1회 제공량(140ml)/ 165kcal</li>
+						</ul>
+
+
+
+
+					</div>
+
+				</div>
+
+				<!--  -->
+				<!--  -->
+				<!--  -->
+				<!--  -->
+				<!--  -->
+
+
+
+				<!-- Comments Form -->
+				<div class="card my-4">
+					<h5 class="card-header">이거 어때요?</h5>
+					<div class="card-body">
+						<!-- action은 기본값으로 루트주었음. 변경해야 한다.-->
+						<form method="GET"  action="/review/" th:attrappend="action=${news.newsNum}">
+
+
+
+							<div class="form-group">
+								<!--tth_textarea-->
+								<textarea id="reviewComment" name="reviewComment" class="form-control" rows="3" placeholder="후기를 남겨주세요!"></textarea>
+							</div>
+							<!-- 여기에 추천, 비추천 select박스-->
+							<div class="form-group col-3 ">
+								<!--th_select1-->
+								<select id="reviewLike" name="reviewLike" class="form-control" >
+									<option value="보통입니다">보통입니다!</option>
+									<option value="추천합니다">👍 추천합니다!</option>
+									<option value="먹지마세요">👎 먹지마세요 ㅠㅠ</option>
+								</select>
+							</div>
+							<div>
+								<input type="submit" class="btn btn-primary col-2" value="전송" />
+							</div>
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+						</form>
+					</div>
+				</div>
+
+
+				<!--  -->
+				<!--  -->
+				<!--  -->
+				<!--  -->
+				<!--  -->
+
+
+
+				<!-- Single Comment -->
+
+
+
+
+
+			</div>
+		</div>
+		<!-- /.row -->
+
+				<div >
+					<div class="media mb-4"  th:each="review:${reviews}">
+						<img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt=""/>
+						<div class="media-body">
+
+							<h5 class="mt-0" th:text="${review.reviewLike}"></h5>
+
+							<h7 th:text="${review.reviewComment}"></h7></br>
+							<!--<h7 th:text="${review.reviewDate}"></h7>-->
+
+						</div>
+					</div>
+				</div>
+
+		<!-- /.row -->
+
+		<!-- Related Projects Row -->
+		<h3 class="my-4">Related Projects</h3>
+
+		<div class="row">
+
+			<div class="col-md-3 col-sm-6 mb-4">
+				<a href="#"> <img class="img-fluid"
+					src="http://placehold.it/500x300" alt="">
+				</a>
+			</div>
+
+			<div class="col-md-3 col-sm-6 mb-4">
+				<a href="#"> <img class="img-fluid"
+					src="http://placehold.it/500x300" alt="">
+				</a>
+			</div>
+
+			<div class="col-md-3 col-sm-6 mb-4">
+				<a href="#"> <img class="img-fluid"
+					src="http://placehold.it/500x300" alt="">
+				</a>
+			</div>
+
+			<div class="col-md-3 col-sm-6 mb-4">
+				<a href="#"> <img class="img-fluid"
+					src="http://placehold.it/500x300" alt="">
+				</a>
+			</div>
+
+		</div>
+		<!-- /.row -->
+
+
+
+	</div>
+	<!-- /.container -->
+
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Your
+				Website 2019</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="/vendor/jquery/jquery.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+
+
+</body>
+
+</html>

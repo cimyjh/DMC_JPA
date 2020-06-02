@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+
+  <title>DMC-Convenience Store Program</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Custom fonts for this template -->
+  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'/>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'/>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'/>
+
+  <!-- Custom styles for this template -->
+  <link href="/css/agency.css" rel="stylesheet"/>
+
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=YOUR_CLIENT_ID"></script>
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container" style= "background-color: #212529; opacity: 80%; ">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">DMC</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#event">Event</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link js-scroll-trigger" href="#new">New</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" sec:authorize="isAnonymous()" th:href="@{login}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" sec:authorize="isAnonymous()" th:href="@{register}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" sec:authorize="isAuthenticated()" th:href="@{logout}">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-heading text-uppercase">DMC</div>
+        <div class="intro-lead-in">Don't Miss the Chance!</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">더보기</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services Grid -->
+  <section class="page-section" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Services</h2>
+          <h3 class="section-subheading text-muted">편의점의 모든것! </h3>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-star fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">행사 상품</h4>
+          <p class="text-muted">각 편의점에서 행사를 준비해두었습니다!</br>플러스행사, 증정행사 등 혜택들을 꼭 챙기세요!</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-fire-alt fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">신제품</h4>
+          <p class="text-muted">새로 나온 메뉴가 괜찮은지 알고 싶으신가요?</br>신제품에 대해 이야기할 공간이 있습니다! </p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-file-alt fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">리뷰</h4>
+          <p class="text-muted">신제품이 맛있을지 몰라 사기가 망설여지나요?</br>내 리뷰 작성과 다른 리뷰로 현명한 선택을 하세요!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Event Grid -->
+  <section class="bg-light page-section" id="event">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Event</h2>
+          <h3 class="section-subheading text-muted">편의점 별 행사 상품 소개</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" href="/event">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="/img/portfolio/all_thumbnail.png" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>All</h4>
+            <p class="text-muted">모든 편의점 행사</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link"   href="/event/GS25">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="/img/portfolio/gs25_thumbnail.png" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>GS25</h4>
+            <p class="text-muted">GS25 행사</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link"   href="/event/CU">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="/img/portfolio/cu_thumbnail.png" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>CU</h4>
+            <p class="text-muted">CU 행사</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link"   href="/event/emart24">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="/img/portfolio/emart24_thumbnail.png" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>EMART24</h4>
+            <p class="text-muted">EMART24 행사</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link"   href="/event/7-eleven">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="/img/portfolio/7eleven_thumbnail.png" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>7-ELEVEN</h4>
+            <p class="text-muted">7-ELEVEN 행사</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- New Grid -->
+  <section class="bg-light page-section" id="new">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">New</h2>
+          <h3 class="section-subheading text-muted">편의점 별 신제품 소개 및 리뷰</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link"  href="/new">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="/img/portfolio/all_thumbnail.png" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>All</h4>
+            <p class="text-muted">모든 편의점 신제품</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link"  href="/new/GS25">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="/img/portfolio/gs25_thumbnail.png" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>GS25</h4>
+            <p class="text-muted">GS25 신제품</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" href="/new/CU">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="/img/portfolio/cu_thumbnail.png" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>CU</h4>
+            <p class="text-muted">CU 신제품</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link"   href="/new/emart24">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="/img/portfolio/emart24_thumbnail.png" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>EMART24</h4>
+            <p class="text-muted">EMART24 신제품</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link"   href="/new/7-eleven">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="/img/portfolio/7eleven_thumbnail.png" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>7-ELEVEN</h4>
+            <p class="text-muted">7-ELEVEN 신제품</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <span class="copyright">Copyright &copy; Team DMC All Rights Reserved</span>
+        </div>
+        
+        <div class="col-md-4">
+          <ul class="list-inline quicklinks">
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="/js/jqBootstrapValidation.js"></script>
+  <script src="/js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="/js/agency.min.js"></script>
+
+  
+
+</body>
+
+</html>

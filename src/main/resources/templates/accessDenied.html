@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/bootstrap-theme.min.css}" />
+</head>
+<body>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="alert alert-danger" role="alert">
+				<h2>Sorry. 귀하는 이 페이지를 볼 권한이 없습니다.</h2>
+				Click login at <a th:href="@{/login}">here</a>.
+			</div>
+		</div>
+	</div>
+</body>
+</html>
