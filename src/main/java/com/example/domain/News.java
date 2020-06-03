@@ -43,8 +43,5 @@ public class News {
 		reviews.add(review);
 		review.setNews(this);
 	}
-
-
-
 	
 }

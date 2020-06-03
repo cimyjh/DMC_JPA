@@ -30,7 +30,7 @@ public class Review {
 
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name ="member_id")
+	@JoinColumn(name ="user_id")
 	private User user;
 	
 	private String reviewComment;
@@ -57,10 +57,10 @@ public class Review {
 //	}
 
 	//연관관계 편의 메소드
-	public void setUser(User user){
-		this.user = user;
-		user.getReviews().add(this);
-	}
+//	public void setUser(User user){
+//		this.user = user;
+//		user.getReviews().add(this);
+//	}
 
 	public void setNews(News news){
 		this.news = news;

@@ -12,24 +12,24 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        dialect: hibernate.dialect.OracleDialect
+        dialect: org.hibernate.dialect.OracleDialect
 
   security:
     oauth2:
       client:
         registration:
           google:
-            client-id: 구글클라이언트ID
-            client-secret: 구글클라이언트시크릿
+            client-id: 1060034576462-kflrrd6srvmrd5cqctq8ts957gmk0748.apps.googleusercontent.com
+            client-secret: gSz_vlx-vSscf1VlAJoMTp-z
             scope: profile,email
 
-        naver:
-          client-id: 네이버클라이언트ID
-          client-secret: 네이버클라이언트시크릿
-          redirect-uri: {baseUrl}/{action}/oauth2/code/{registrationId}
-          authorization-grant-type: authorization_code
-          scope: name,email,profile_image
-          client-name: Naver
+#        naver:
+#          client-id: WedWxpZ5XN8jrrX8Qpul
+#          client-secret: 9zf8pzwEKD
+#          redirect-uri: {baseUrl}/{action}/oauth2/code/{registrationId}
+#          authorization-grant-type: authorization_code
+#          scope: name,email,profile_image
+#          client-name: Naver
 
         provider:
           naver:

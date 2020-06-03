@@ -3,7 +3,6 @@ package com.example.controller;
 import java.util.List;
 
 import com.example.domain.Review;
-import com.example.dto.MemberDto;
 import com.example.service.DetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,12 +14,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.domain.Event;
 import com.example.domain.News;
 import com.example.service.EventService;
-import com.example.service.MemberService;
 import com.example.service.NewsService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -30,8 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {// 모든 경로를 관리
 
-	@Autowired
-	private MemberService memberService;
+
 	
 	@Autowired 
 	private EventService eventService;
@@ -160,13 +156,13 @@ public class MainController {// 모든 경로를 관리
 		return "register"; // templates/register.html
 	}
 
-	// 회원가입 처리
-	@PostMapping("/register")
-	public String execSignup(MemberDto memberDto) {
-		memberService.joinUser(memberDto);
-
-		return "redirect:/login";
-	}
+//	// 회원가입 처리
+//	@PostMapping("/register")
+//	public String execSignup(MemberDto memberDto) {
+//		memberService.joinUser(memberDto);
+//
+//		return "redirect:/login";
+//	}
 
 
 	// 로그인 페이지
