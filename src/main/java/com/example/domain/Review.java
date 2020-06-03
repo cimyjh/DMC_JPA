@@ -1,9 +1,5 @@
 package com.example.domain;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Optional;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,8 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import com.example.domain.user.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,7 +31,7 @@ public class Review {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name ="member_id")
-	private Member member;
+	private User user;
 	
 	private String reviewComment;
 	private String reviewLike;
@@ -62,9 +57,9 @@ public class Review {
 //	}
 
 	//연관관계 편의 메소드
-	public void setMember(Member member){
-		this.member = member;
-		member.getReviews().add(this);
+	public void setUser(User user){
+		this.user = user;
+		user.getReviews().add(this);
 	}
 
 	public void setNews(News news){
@@ -73,9 +68,9 @@ public class Review {
 	}
 
 
-	public static Review createReview(Member member, News news, String reviewComment, String reviewLike){
+	public static Review createReview(User user, News news, String reviewComment, String reviewLike){
 		Review review = new Review();
-		review.setMember(member);
+		review.setUser(user);
 		review.setNews(news);
 		review.setReviewComment(reviewComment);
 		review.setReviewLike(reviewLike);

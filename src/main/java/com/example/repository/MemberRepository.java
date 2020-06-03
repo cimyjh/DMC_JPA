@@ -1,20 +1,19 @@
 package com.example.repository;
 
+import com.example.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.domain.Member;
-
-public interface MemberRepository extends JpaRepository<Member, Long> {
+public interface MemberRepository extends JpaRepository<User, Long> {
 
 	//List<Member> findById(Long id);
 
 
-	Member findByEmail(String userEmail);
+	User findByEmail(String userEmail);
 
-	Member findByNickname(String nicknamed);
+	User findByNickname(String nicknamed);
 
 
-	Member findById(String memberId);
+	User findById(String memberId);
 
 
 

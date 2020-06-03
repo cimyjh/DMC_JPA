@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.example.domain.Member;
+import com.example.domain.user.User;
 import com.example.domain.News;
 import com.example.domain.Review;
 import com.example.repository.DetailRepository;
@@ -35,9 +35,9 @@ public class DetailService {
 	@Transactional
 	public Review insertReview(long newsNum, String email, String reviewComment, String reviewLike) {
 		News news = newsRepository.findByNewsNum(newsNum);
-		Member member = memberRepository.findByEmail(email);
+		User user = memberRepository.findByEmail(email);
 
-		Review review = Review.createReview(member, news, reviewComment, reviewLike);
+		Review review = Review.createReview(user, news, reviewComment, reviewLike);
 
 		return detailRepository.save(review);
 

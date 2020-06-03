@@ -1,13 +1,12 @@
 package com.example.service;
 
-import com.example.domain.Member;
+import com.example.domain.user.User;
 import com.example.domain.Role;
 import com.example.dto.MemberDto;
 import com.example.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -62,8 +61,8 @@ public class MemberService implements UserDetailsService{
 
 	@Override
 	public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
-		Optional<Member> userEntityWrapper = Optional.ofNullable(memberRepository.findByEmail(userEmail));
-		Member userEntity = userEntityWrapper.get();
+		Optional<User> userEntityWrapper = Optional.ofNullable(memberRepository.findByEmail(userEmail));
+		User userEntity = userEntityWrapper.get();
 
 		List<GrantedAuthority> authorities = new ArrayList<>();
 
@@ -73,7 +72,7 @@ public class MemberService implements UserDetailsService{
 			authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
 		}
 
-		return new User(userEntity.getEmail(), userEntity.getPassword(), authorities);
+		return new org.springframework.security.core.userdetails.User(userEntity.getEmail(), userEntity.getPassword(), authorities);
 	}
 }
 

@@ -1,6 +1,6 @@
 package com.example.dto;
 
-import com.example.domain.Member;
+import com.example.domain.user.User;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -21,8 +21,8 @@ public class MemberDto {
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
 
-    public Member toEntity(){
-        return Member.builder()
+    public User toEntity(){
+        return User.builder()
                 .email(email)
                 .id(id)
                 .nickname(nickname)
